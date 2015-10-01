@@ -22,4 +22,10 @@ class Spinky
     {
 
     }
+
+    function GetProductsListFromCategory($category_id)
+    {
+        global $modx;
+        global $table_prefix;
+    }
 }
