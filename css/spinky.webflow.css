@@ -1,0 +1,809 @@
+body {
+  font-family:'PT Sans Narrow', sans-serif;
+  color: #333;
+  font-size: 14px;
+  line-height: 20px;
+}
+h1 {
+  margin-top: 20px;
+  margin-bottom: 10px;
+  font-size: 38px;
+  line-height: 44px;
+  font-weight: 700;
+}
+h4 {
+  display: inline-block;
+}
+h5 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 14px;
+  line-height: 20px;
+  font-weight: 700;
+}
+h6 {
+  margin-top: 10px;
+  margin-bottom: 10px;
+  font-size: 12px;
+  line-height: 18px;
+  font-weight: 700;
+}
+p {
+  margin-bottom: 5px;
+}
+a:hover {
+  color: #ed1c24;
+}
+.button {
+  display: inline-block;
+  padding: 4px 15px;
+  background-color: black;
+  color: white;
+  text-align: center;
+  text-decoration: none;
+}
+.left {
+  position: fixed;
+  left: 6%;
+  width: 18%;
+  text-align: center;
+}
+.right {
+  position: fixed;
+  top: 0px;
+  right: 6%;
+  width: 18%;
+  text-align: center;
+}
+.logo {
+  width: 8vw;
+  height: 8vw;
+  margin-top: 2.5vw;
+}
+.menuitem {
+  display: inline-block;
+  width: 100%;
+  margin-top: 2.3vw;
+  margin-bottom: 0px;
+  font-size: 1.2vw;
+  line-height: 80%;
+  font-weight: 500;
+  text-decoration: underline;
+}
+.menusep {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  margin-top: 2.3vw;
+  margin-bottom: 1.8vw;
+  border-top: 1px solid #d9d9d9;
+}
+.menutitle {
+  position: relative;
+  top: -0.6rem;
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  background-color: white;
+  color: #ed1c24;
+  font-size: 1.3vw;
+  line-height: 80%;
+  font-weight: 400;
+}
+.submenuitem {
+  display: inline-block;
+  width: 100%;
+  margin-top: 0vw;
+  margin-bottom: 0.9vw;
+  color: #787878;
+  font-size: 0.8vw;
+  line-height: 80%;
+  font-weight: 400;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.menusep2 {
+  height: 1px;
+  margin-top: 1.5vw;
+  margin-bottom: 1.9vw;
+  border-top: 1px solid #d9d9d9;
+}
+.menuitem2 {
+  margin-top: 0px;
+  margin-bottom: 1.4vw;
+  font-size: 1.2vw;
+  line-height: 80%;
+  font-weight: 400;
+  text-decoration: underline;
+}
+.sepright1 {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  margin-top: 2.5vw;
+  border-top: 1px solid #d9d9d9;
+  text-align: center;
+}
+.rightsubheader {
+  position: relative;
+  top: -0.7rem;
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-right: 1vw;
+  padding-left: 1vw;
+  background-color: white;
+  font-size: 1vw;
+  line-height: 80%;
+  font-weight: 400;
+  text-align: center;
+}
+.phone {
+  margin-top: 1.6vw;
+  margin-bottom: 2.9vw;
+  color: #ed1c24;
+  font-size: 3vw;
+  line-height: 80%;
+  font-weight: 400;
+  text-align: center;
+}
+.sepright2 {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  border-top: 1px solid #d9d9d9;
+  text-align: center;
+}
+.total {
+  margin-top: 3vw;
+  margin-bottom: 4.1vw;
+  font-size: 2.4vw;
+  line-height: 80%;
+  text-align: center;
+}
+.price {
+  display: inline-block;
+  width: 2.9vw;
+  margin-right: 0.5vw;
+  padding: 0.15vw 0.3vw 0.18vw;
+  float: left;
+  border: 1px solid #999;
+  border-radius: 0.3vw;
+  color: #999;
+  font-size: 0.8vw;
+  line-height: 100%;
+  text-align: center;
+}
+.price.redprice {
+  border-color: #ed1c24;
+  color: #ed1c24;
+  font-size: 0.8vw;
+}
+.price.centeritemprice {
+  float: none;
+  border-color: #ed1c24;
+  color: #ed1c24;
+}
+.delete {
+  display: inline-block;
+  margin-top: 0.28vw;
+  float: left;
+  color: #d1d1d1;
+  font-size: 2.4vw;
+  line-height: 38%;
+}
+.delete:hover {
+  color: #ed1c24;
+}
+.rightbludo {
+  width: 62%;
+  margin-top: 0.1vw;
+  float: left;
+  color: #444;
+  font-size: 0.8vw;
+  line-height: 120%;
+  font-weight: 400;
+  text-align: left;
+  text-transform: uppercase;
+}
+.rightbludo.sauce {
+  width: 100%;
+  margin-bottom: 0.6vw;
+  text-align: center;
+}
+.rightitem {
+  margin-bottom: 1vw;
+  padding-left: 12px;
+}
+.order {
+  display: inline-block;
+  width: 90%;
+  margin-top: 1.5vw;
+  padding-top: 1.3vw;
+  padding-bottom: 1.3vw;
+  border: 2px solid #ed1c24;
+  border-radius: 0.5vw;
+  color: #ed1c24;
+  font-size: 1.2vw;
+  line-height: 80%;
+  text-align: center;
+  text-transform: uppercase;
+}
+.order:hover {
+  background-color: #ed1c24;
+  color: white;
+}
+.center {
+  width: 43%;
+  height: auto;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+}
+.topinfo {
+  height: 10.5vw;
+  border-bottom: 1px solid #d9d9d9;
+}
+.topinfo.topinfo2 {
+  margin-top: 1vw;
+  margin-bottom: 2vw;
+  border: 1px solid #d9d9d9;
+}
+.priziv {
+  margin-top: 3.3vw;
+  margin-bottom: 3.5vw;
+  font-family: Yanonekaffeesatz, sans-serif;
+  font-size: 3.5vw;
+  line-height: 80%;
+  font-weight: 300;
+  text-align: center;
+}
+.centerleft {
+  display: inline-block;
+  width: 33%;
+  float: left;
+}
+.centecenter {
+  display: inline-block;
+  width: 33%;
+  float: left;
+}
+.centerright {
+  display: inline-block;
+  width: 33%;
+  float: left;
+}
+.constructortitle {
+  margin-top: 0px;
+  margin-bottom: 3vw;
+  font-family: Yanonekaffeesatz, sans-serif;
+  font-size: 2vw;
+  line-height: 80%;
+  font-weight: 300;
+}
+.constructortitle.priprav {
+  margin-top: 2vw;
+  margin-bottom: 1.65vw;
+}
+.boxcontainer {
+  height: 11.1vw;
+  margin-bottom: 0.65vw;
+  background-image: url('../images/box.png');
+  background-position: 50% 50%;
+  background-size: contain;
+  background-repeat: no-repeat;
+}
+.consleftitem {
+  margin-bottom: 1.48vw;
+  padding-right: 0%;
+  padding-left: 9%;
+}
+.consrightitem {
+  margin-bottom: 0.43vw;
+  padding-left: 17%;
+}
+.centersep1 {
+  display: inline-block;
+  width: 100%;
+  height: 1px;
+  margin-top: 4vw;
+  margin-bottom: 1vw;
+  border-top: 1px solid #d9d9d9;
+}
+.centersepwhite {
+  position: relative;
+  top: -2.5vw;
+  display: inline-block;
+  width: 60%;
+  height: 5vw;
+  background-color: white;
+}
+.payonline {
+  display: block;
+  margin-top: 1.2vw;
+  color: #08a600;
+  font-size: 1.2vw;
+  line-height: 80%;
+  text-transform: uppercase;
+}
+.consdobavit {
+  display: inline-block;
+  width: 80%;
+  height: 5vw;
+  padding-top: 1.3vw;
+  border: 1px solid #ed1c24;
+  border-radius: 1vw;
+  font-family: Yanonekaffeesatz, sans-serif;
+  color: #ed1c24;
+  font-size: 2.2vw;
+  line-height: 82%;
+  text-decoration: none;
+}
+.consdobavit:hover {
+  background-color: #ed1c24;
+  color: white;
+}
+.centermenutitle {
+  margin-top: 4vw;
+  margin-bottom: 1.5vw;
+  font-family: Yanonekaffeesatz, sans-serif;
+  font-size: 3.5vw;
+  line-height: 80%;
+}
+.centersep {
+  display: inline-block;
+  width: 80%;
+  height: 1px;
+  margin-top: 3vw;
+  margin-bottom: 4vw;
+  border-top: 1px solid #d9d9d9;
+}
+.centermenusubtitle {
+  position: relative;
+  top: -1vw;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding: 0px 2vw;
+  background-color: white;
+  font-family: Yanonekaffeesatz, sans-serif;
+  color: #ed1c24;
+  font-size: 1.7vw;
+  line-height: 80%;
+  font-weight: 300;
+}
+.centeritem {
+  display: inline-block;
+  width: 32.5%;
+  margin-bottom: 3vw;
+}
+.centeritemimg {
+  width: auto;
+  height: 11vw;
+}
+.centeritemtitle {
+  margin-top: 1vw;
+  margin-bottom: 0.5vw;
+  font-size: 0.8vw;
+  line-height: 130%;
+  font-weight: 400;
+  text-decoration: underline;
+  text-transform: uppercase;
+}
+.dobavit {
+  display: block;
+  margin-top: 0.9vw;
+  color: #08a600;
+  font-size: 0.8vw;
+  line-height: 80%;
+}
+.dobavit:hover {
+  color: #333;
+}
+.bottomsep {
+  height: 1px;
+  margin-top: 2vw;
+  border-top: 1px solid #ed1c24;
+}
+.telefondostavki {
+  position: relative;
+  top: -0.6rem;
+  display: inline-block;
+  margin-top: 0px;
+  margin-bottom: 0px;
+  padding-right: 2vw;
+  padding-left: 2vw;
+  background-color: white;
+  color: #ed1c24;
+  font-size: 2vw;
+  line-height: 80%;
+  font-weight: 400;
+  text-transform: uppercase;
+}
+.bottomphone {
+  margin-top: 4vw;
+  margin-bottom: 4vw;
+  color: #ed1c24;
+  font-size: 10vw;
+  line-height: 80%;
+  font-weight: 400;
+}
+.bottomleft {
+  display: inline-block;
+  width: 50%;
+  height: 12vw;
+  padding-top: 3vw;
+  color: #999;
+  font-size: 1.4vw;
+  line-height: 80%;
+  text-align: left;
+}
+.bottomright {
+  display: inline-block;
+  width: 50%;
+  height: 12vw;
+  padding-top: 3vw;
+  color: #999;
+  font-size: 1.4vw;
+  line-height: 80%;
+  text-align: right;
+}
+@media (max-width: 991px) {
+  .left {
+    left: 3%;
+    width: 19%;
+  }
+  .right {
+    right: 3%;
+    width: 19%;
+  }
+  .menutitle {
+    top: -0.75rem;
+  }
+  .rightsubheader {
+    top: -0.8rem;
+  }
+  .phone {
+    margin-top: 0.1vw;
+    margin-bottom: 2.85vw;
+  }
+  .total {
+    margin-top: 2.1vw;
+  }
+  .price {
+    width: 3.3vw;
+    margin-right: 0.4vw;
+    padding-top: 0.1vw;
+    padding-bottom: 0vw;
+    font-size: 1.2vw;
+    line-height: 98%;
+  }
+  .price.centeritemprice {
+    font-size: 1.2vw;
+  }
+  .order {
+    margin-top: 2vw;
+  }
+  .center {
+    width: 48%;
+  }
+  .priziv {
+    margin-top: 3.6vw;
+  }
+  .payonline {
+    margin-top: 2vw;
+  }
+}
+@media (max-width: 767px) {
+  .right {
+    right: 4%;
+    width: 24%;
+  }
+  .logo {
+    display: inline-block;
+    width: 8vw;
+    height: 8vw;
+    margin-right: auto;
+    margin-left: auto;
+    float: none;
+    font-size: 146px;
+  }
+  .menuitem2 {
+    margin-bottom: 2vw;
+    font-size: 1.6vw;
+    text-transform: uppercase;
+  }
+  .rightsubheader {
+    top: -0.75rem;
+    font-size: 2vw;
+  }
+  .phone {
+    margin-top: -1.5vw;
+    margin-bottom: 2vw;
+  }
+  .total {
+    margin-top: -0.5vw;
+    margin-bottom: 2.7vw;
+  }
+  .price {
+    width: 5vw;
+    padding-bottom: 0.4vw;
+    font-size: 2vw;
+  }
+  .price.redprice {
+    font-size: 1.5vw;
+  }
+  .price.centeritemprice {
+    font-size: 1.5vw;
+  }
+  .rightbludo {
+    font-size: 2vw;
+  }
+  .order {
+    font-size: 1.6vw;
+  }
+  .center {
+    width: 64%;
+    margin-left: 4%;
+  }
+  .topinfo {
+    height: 13.2vw;
+  }
+  .priziv {
+    font-size: 4.5vw;
+  }
+  .constructortitle {
+    font-size: 3vw;
+  }
+  .boxcontainer {
+    height: 18.1vw;
+    margin-bottom: 7.2vw;
+  }
+  .consleftitem {
+    margin-bottom: 3.3vw;
+  }
+  .consrightitem {
+    margin-bottom: 1.5vw;
+  }
+  .payonline {
+    margin-bottom: 3vw;
+    font-size: 1.6vw;
+  }
+  .consdobavit {
+    padding-top: 0.8vw;
+    font-size: 3.2vw;
+    text-transform: uppercase;
+  }
+  .centermenusubtitle {
+    top: -0.7rem;
+    font-size: 2.7vw;
+  }
+  .centeritemtitle {
+    font-size: 2vw;
+  }
+  .dobavit {
+    font-size: 2vw;
+    text-transform: uppercase;
+  }
+  .bottomleft {
+    font-size: 2.4vw;
+  }
+  .bottomright {
+    font-size: 2.4vw;
+  }
+}
+@media (max-width: 479px) {
+  .right {
+    right: 0%;
+    width: 50%;
+    height: 40px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: white;
+    text-align: left;
+  }
+  .logo {
+    display: block;
+    width: 40px;
+    height: 40px;
+    margin-top: 0px;
+    margin-right: 17px;
+    margin-left: 0px;
+    float: left;
+  }
+  .menuitem2 {
+    display: block;
+    width: 100%;
+    margin-top: 11px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .sepright1 {
+    width: 85px;
+    margin-top: 0vw;
+    border-top-style: none;
+    border-top-width: 0px;
+    text-align: left;
+  }
+  .rightsubheader {
+    position: static;
+    display: block;
+    margin-top: -9px;
+    padding-right: 0vw;
+    padding-left: 0vw;
+    float: left;
+    font-size: 9px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .phone {
+    display: block;
+    margin-top: -4px;
+    margin-bottom: 0vw;
+    float: left;
+    font-size: 26px;
+  }
+  .total {
+    margin-top: 5px;
+    margin-bottom: 0vw;
+    color: #999;
+    font-size: 15px;
+    text-align: left;
+    text-transform: uppercase;
+  }
+  .price {
+    width: 35px;
+    margin-right: 10px;
+    padding-top: 0px;
+    padding-right: 2px;
+    padding-left: 2px;
+    border-radius: 2px;
+    font-size: 13px;
+  }
+  .price.redprice {
+    font-size: 13px;
+  }
+  .price.centeritemprice {
+    margin-right: 0px;
+    font-size: 13px;
+  }
+  .delete {
+    margin-top: 3px;
+    font-size: 24px;
+  }
+  .rightbludo {
+    margin-top: 1px;
+    font-size: 13px;
+  }
+  .order {
+    font-size: 10px;
+  }
+  .center {
+    width: 90%;
+    margin-top: 40px;
+    margin-right: 5%;
+    margin-left: 5%;
+    float: left;
+  }
+  .topinfo {
+    width: 100%;
+    height: 59px;
+    float: left;
+  }
+  .priziv {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 13px;
+    float: left;
+    font-size: 31px;
+  }
+  .centerleft {
+    width: 100%;
+    padding-right: 44px;
+    padding-left: 44px;
+  }
+  .centecenter {
+    width: 100%;
+  }
+  .centerright {
+    width: 100%;
+  }
+  .constructortitle {
+    margin-top: 22px;
+    margin-bottom: 18px;
+    font-size: 24px;
+  }
+  .centersep1 {
+    display: block;
+    margin-top: 30px;
+    margin-bottom: 38px;
+    float: left;
+  }
+  .consdobavit {
+    height: 50px;
+    margin-top: -14px;
+    padding-top: 12px;
+    font-size: 20px;
+  }
+  .centermenutitle {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: -2px;
+    float: left;
+    font-size: 25px;
+  }
+  .centersep {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+  .centermenusubtitle {
+    font-size: 18px;
+  }
+  .centeritem {
+    margin-bottom: 20px;
+  }
+  .centeritemimg {
+    height: 77px;
+  }
+  .centeritemtitle {
+    font-size: 12px;
+  }
+  .dobavit {
+    margin-top: 6px;
+    font-size: 10px;
+  }
+  .bottomsep {
+    margin-top: 40px;
+  }
+  .telefondostavki {
+    top: -0.5rem;
+    font-size: 20px;
+  }
+  .bottomphone {
+    margin-top: 38px;
+    margin-bottom: 15px;
+    font-size: 50px;
+  }
+  .bottomleft {
+    width: 100%;
+    height: 100px;
+    padding-top: 20px;
+    font-size: 18px;
+    text-align: center;
+  }
+  .bottomright {
+    width: 100%;
+    height: 50px;
+    padding-top: 20px;
+    font-size: 20px;
+    text-align: center;
+  }
+  .tophone {
+    position: fixed;
+    width: 50%;
+    height: 40px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: white;
+  }
+  .tophone2 {
+    position: fixed;
+    right: 0px;
+    width: 50%;
+    height: 40px;
+    border-bottom: 1px solid #d9d9d9;
+    background-color: white;
+  }
+  .vkorzinumobile {
+    display: inline-block;
+    margin-top: 1px;
+    color: #08a600;
+    text-transform: uppercase;
+  }
+}
+
+@font-face {
+  font-family: 'Yanonekaffeesatz';
+  src: url('../fonts/YanoneKaffeesatz-Thin.otf') format('opentype');
+  font-weight: 300;
+  font-style: normal;
+}
