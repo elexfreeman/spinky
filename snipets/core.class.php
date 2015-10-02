@@ -125,7 +125,7 @@ class Spinky
         foreach($menuItems as $menuItem)
         {
             ?>
-            <h3 class="submenuitem"><?php echo $menuItem->title;?></h3>
+            <h3 class="submenuitem click"  onclick="ShowPage('<?php echo $menuItem->url; ?>','CenterBox');"><?php echo $menuItem->title;?></h3>
             <?php
         }
     }

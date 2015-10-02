@@ -1,62 +1,40 @@
-/*Вставляет конструктор блюд в центр*/
-function GetConstructor()
+    function ShowPage(link,targert)
 {
     $.get(
-        "/index/konstruktor.html",
+        link,
         {
             //log1:1,
 
         },
         function (data)
         {
-           $(".constructor").html(data);
+            $("."+targert).html(data);
         },"html"
     ); //$.get  END
+}
+
+
+/*Вставляет конструктор блюд в центр*/
+function GetConstructor()
+{
+    ShowPage("/index/konstruktor.html",'constructor');
 }
 
 function GetLeftMenu()
 {
-    $.get(
-        "/index/leftmenu.html",
-        {
-            //log1:1,
-
-        },
-        function (data)
-        {
-            $(".LeftMenu").html(data);
-        },"html"
-    ); //$.get  END
+    ShowPage("/index/leftmenu.html",'LeftMenu');
 }
 
 function GetMainPage()
 {
-    $.get(
-        "/index/mainpage.html",
-        {
-            //log1:1,
-
-        },
-        function (data)
-        {
-            $(".MainPage").html(data);
-        },"html"
-    ); //$.get  END
+    ShowPage("/index/mainpage.html",'MainPage');
 }
 
 function GetCard()
 {
-    $.get(
-        "/index/card.html",
-        {
-            //log1:1,
+    ShowPage("/index/card.html",'card');
 
-        },
-        function (data)
-        {
-            $(".card").html(data);
-        },"html"
-    ); //$.get  END
+
 }
 
 
