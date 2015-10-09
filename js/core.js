@@ -52,12 +52,6 @@ function GetCard()
             function (data) {
                 console.info(data);
                 //меняла чекнуто не екнуто
-                if (data.status == "1") {
-                    $(".product_content_buy").css("cursor", "no-drop").attr("disabled", "disabled");
-                }
-                else {
-                    $(".product_" + product_id).css("background-position", "");
-                }
 
                 if (parseInt(data.count) > 0) {
                     var tmp = "<a href='/cart/'><img src='/assets/bonsan/tpl/img/cart.png' alt='Корзина заказов'/><p><span>В вашей корзине:</span>";
@@ -69,6 +63,7 @@ function GetCard()
                      $('.modalThx').modal('hide');
                      }, 5000);*/
                 }
+                GetCard();
                 /*else {
                  $(".top2_cart").html('')
                  }*/
