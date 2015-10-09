@@ -7,7 +7,9 @@
  */
 
 $root_category_id=3;
-
+/*todo: Левое меню сайта с прокруткой а не ссылками*/
+/*todo: добавление в корзину*/
+/*todo: отдельные страницы товаров*/
 
 function rus2translit($string) {
     $converter = array(
@@ -142,6 +144,8 @@ class Spinky
         }
     }
 
+
+    /*Выводит центральную часть сайта*/
     function ShowMainMenu()
     {
         $menuItems=$this->GetMenuList();
