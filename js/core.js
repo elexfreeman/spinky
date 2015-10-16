@@ -13,6 +13,30 @@
     ); //$.get  END
 }
 
+    /*Удаляет товар из корзины*/
+    function CardProductDelete(product_id)
+    {
+        console.info("AddToCard="+product_id);
+        $.get(
+            "mainL.php",
+            {
+                //log1:1,
+                action:"CardProductDelete",
+                product_id:product_id
+
+            },
+            function (data) {
+                console.info(data);
+                if(data.status=="1")
+                {
+                    location.reload();
+                }
+
+            },"json"
+        ); //$.get  END
+
+    }
+
 
 /*Вставляет конструктор блюд в центр*/
 function GetConstructor()
@@ -33,6 +57,7 @@ function GetMainPage()
 function GetCard()
 {
     ShowPage("/index/card.html",'card');
+    $(".card").fadeIn("slow");
 }
 
 
@@ -40,6 +65,7 @@ function GetCard()
     //добавление в корзину
     function AddToCard(product_id, product_count, product_price) {
         console.info("AddToCard=" + product_id);
+        $(".card").fadeOut("slow");
         $.get(
             "ajax.html",
             {
@@ -67,6 +93,29 @@ function GetCard()
                 /*else {
                  $(".top2_cart").html('')
                  }*/
+
+            }, "json"
+        ); //$.get  END
+
+    }
+
+
+    //добавление в корзину
+    function DeleteFromCard(product_id) {
+        console.info("AddToCard=" + product_id);
+        $.get(
+            "ajax.html",
+            {
+                //log1:1,
+                action: "DeleteFromCard",
+                product_id: product_id
+
+            },
+            function (data) {
+                console.info(data);
+                //меняла чекнуто не екнуто
+                GetCard();
+
 
             }, "json"
         ); //$.get  END

@@ -1,0 +1,9 @@
+.card_products
+{
+    height: 230px;
+    overflow: auto;
+}
+.click
+{
+    cursor:pointer;
+}

@@ -59,29 +59,9 @@ class Spinky
 
 
     /*Выводит центральную часть сайта*/
-    function ShowMainMenu()
+    function tplShowMainMenu()
     {
-        $menuItems=$this->GetMenuList();
-        foreach($menuItems as $menuItem)
-        {
-            ?>
-            <div class="centersep">
-                <h4 class="centermenusubtitle"><?php echo $menuItem->title; ?></h4>
-            </div>
-            <?php
-            $category=$this->GetCategoryProducts($menuItem->id);
-            foreach($category as $product)
-            {
-                ?>
-                <div class="centeritem"><img class="centeritemimg" src="/product-images/<?php echo $product->tv['img'];?>">
-                    <h5 class="centeritemtitle"><?php echo $product->title;?></h5>
-                    <div class="price centeritemprice"><?php echo $product->tv['Price'];?>&nbsp;₽</div>
-                    <div class="dobavit click" onclick="AddToCard(<?php echo $product->id;?>,1)">Добавить в заказ</div>
-                </div>
-
-                <?php
-            }
-        }
+        include_once "tpl/tplShowMainMenu.php";
     }
 
     /*Показывает товары в одной категории*/
@@ -95,7 +75,7 @@ class Spinky
                 <img class="centeritemimg" src="/product-images/<?php echo $product->tv['img'];?>">
                 <h5 class="centeritemtitle"><?php echo $product->title;?></h5>
                 <div class="price centeritemprice"><?php echo $product->tv['Price'];?>&nbsp;₽</div>
-                <div class="dobavit click"  onclick="AddToCard(<?php echo $product->id;?>,1,<?php echo $product->tv['Price'];?>)">Добавить в заказ</div>
+                <div class="dobavit click"  onclick="AddToCard(<?php echo $product->id;?>,1,<?php echo $product->TV['Price'];?>)">Добавить в заказ</div>
             </div>
 
         <?php
@@ -134,15 +114,15 @@ class Spinky
         return $cc;
     }
 
-    function GetTotalPrice()
+    function GetCardTotalPrice()
     {
-        $price = 0;
-        $cc=0;
-        foreach ($_SESSION as $key => $value) {
-            if (substr($key, 0, 3) == 'pro') $cc = $cc + $value;
-            $dd = explode(' ', $value);
-            $price += $dd[0] * $dd[1];
-        }
+       $price = 0;
+       $card=$this->GetCard();
+       foreach($card as $product)
+       {
+           $price+=$product->TV['Price']*$product->CardCount;
+
+       }
         return $price;
     }
 
@@ -180,7 +160,7 @@ class Spinky
         //----------------------------------------------------------
         $summa = 0;
 
-        $summa = $this->GetTotalPrice();
+        $summa = $this->GetCardTotalPrice();
         //----------------------------------------------------------
         //----------------------------------------------------------
         echo json_encode(array("status" => "1", "count" => $this->GetCardCountProduct(), "summa" => $summa)); //добавили
@@ -196,7 +176,7 @@ class Spinky
         {
             if (substr($key, 0, 3) == 'pro')
             {
-                echo $key . " " . $value . "<br>";
+                //echo $key . " " . $value . "<br>";
 
                 $tmp=explode('_',$key);
                 $product_id=$tmp[1];
@@ -225,7 +205,7 @@ class Spinky
             }//ShowMainMenu
             elseif($scriptProperties['action']=='ShowMainMenu')
             {
-                $this->ShowMainMenu();
+                $this->tplShowMainMenu();
             }//
             elseif($scriptProperties['action']=='tplCard')
             {
