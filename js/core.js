@@ -167,7 +167,10 @@ function GetCard()
             },
             function (data) {
                 console.info(data);
-
+                $(".card_form_do_hide").hide("slow");
+                $(".card_form").hide("slow");
+                $(".card_thx").show("slow");
+                $(".total").html("");
 
 
             }, "json"

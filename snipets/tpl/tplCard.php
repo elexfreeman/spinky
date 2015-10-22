@@ -55,6 +55,10 @@ if((count($card))+0>0)
         </p>
         <span class="w-hidden-tiny order click" onclick="PayWhenDeliveryDone()">Отправить</span>
     </div>
+
+    <div class="card_thx" style="display: none">
+        <p>Спасибо! Наши менеджеры свяжутся с Вами в ближайшее время.</p>
+    </div>
 <?php
 }
 //print_r($card);

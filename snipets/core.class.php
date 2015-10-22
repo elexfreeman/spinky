@@ -129,6 +129,14 @@ class Spinky
     }
 
 
+    /*Обаботчик нажатия Оплатить при доставке после введения данных пользователем*/
+    function PayWhenDeliveryDone()
+    {
+        $result['status']='done';
+        ClearCard();
+        echo json_encode($result);
+
+    }
     //Для обработка ajax-запросов
     function Ajax()
     {
@@ -141,6 +149,10 @@ class Spinky
             elseif($_GET['action']=='DeleteFromCard')
             {
                 $this->DeleteFromCard();
+            }
+            elseif($_GET['action']=='PayWhenDeliveryDone')
+            {
+                $this->PayWhenDeliveryDone();
             }
         }
     }
@@ -209,6 +221,19 @@ class Spinky
             echo   json_encode(array("status"=>"1")); //удалили из корзины
         }
         else echo   json_encode(array("status"=>"0")); //хер там нету такого товара
+    }
+
+    /*Очищает корзину*/
+    function ClearCard()
+    {
+        foreach($_SESSION as $key=>$value)
+        {
+            if(substr($key,0,3)=='pro')
+            {
+                echo $key." ".$value." ".substr($key,0,3);
+                unset($_SESSION[$key]);
+            }
+        }
     }
 
 
