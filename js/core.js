@@ -102,7 +102,7 @@ function GetCard()
 
     //добавление в корзину
     function DeleteFromCard(product_id) {
-        console.info("AddToCard=" + product_id);
+        $(".card").fadeOut("slow");
         $.get(
             "ajax.html",
             {
@@ -127,5 +127,49 @@ function GetCard()
     GetConstructor();
     GetCard();
     GetMainPage();
-    GetLeftMenu();
+    //GetLeftMenu();
 });
+
+    function card_form_close()
+    {
+
+        $(".card_form_do_hide").show("slow");
+
+        $(".card_form").hide("slow");
+    }
+
+    function PayWhenDelivery()
+    {
+
+        $(".card_form_do_hide").hide("slow");
+
+        $(".card_form").show("slow");
+    }
+
+    function PayWhenDeliveryDone()
+    {
+        var user_name = $("input[name='user_name']").val();
+        var user_phone = $("input[name='user_phone']").val();
+        var user_email = $("input[name='user_email']").val();
+        var user_delivery_address = $("input[name='user_delivery_address']").val();
+        $.get(
+            "ajax.html",
+            {
+                //log1:1,
+                action: "PayWhenDeliveryDone",
+                user_name: user_name,
+                user_phone: user_phone,
+                user_email: user_email,
+                user_name: user_name,
+                user_delivery_address: user_delivery_address
+
+
+            },
+            function (data) {
+                console.info(data);
+
+
+
+            }, "json"
+        ); //$.get  END
+    }

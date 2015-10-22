@@ -10,7 +10,7 @@ foreach($menuItems as $menuItem)
 {
     ?>
     <div class="centersep">
-        <h4 class="centermenusubtitle"><?php echo $menuItem->title; ?></h4>
+        <h4 class="centermenusubtitle" id="menuItem_<?php echo $menuItem->id; ?>"><?php echo $menuItem->title; ?></h4>
     </div>
     <?php
     $category=$this->GetCategoryProducts($menuItem->id);

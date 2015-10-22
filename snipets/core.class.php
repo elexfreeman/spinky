@@ -40,7 +40,9 @@ class Spinky
         foreach($menuItems as $menuItem)
         {
             ?>
-            <h3 class="submenuitem click"  onclick="ShowPage('<?php echo $menuItem->url; ?>','CenterBox');"><?php echo $menuItem->title;?></h3>
+            <a class="submenuitem-a" href="#menuItem_<?php echo $menuItem->id; ?>">
+                <h3 class="submenuitem click" ><?php echo $menuItem->title;?></h3>
+            </a>
             <?php
         }
     }
@@ -136,6 +138,10 @@ class Spinky
             {
                 $this->AddToCard();
             }
+            elseif($_GET['action']=='DeleteFromCard')
+            {
+                $this->DeleteFromCard();
+            }
         }
     }
 
@@ -194,6 +200,17 @@ class Spinky
     {
         include_once "tpl/tplCard.php";
     }
+
+    function DeleteFromCard()
+    {
+        if(isset($_SESSION['product_'.$_GET['product_id']]))
+        {
+            unset($_SESSION['product_'.$_GET['product_id']]);
+            echo   json_encode(array("status"=>"1")); //удалили из корзины
+        }
+        else echo   json_encode(array("status"=>"0")); //хер там нету такого товара
+    }
+
 
     function Run($scriptProperties)
     {
