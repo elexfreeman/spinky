@@ -7,15 +7,16 @@
  */
 
 $root_category_id=3;
-/*todo: Левое меню сайта с прокруткой а не ссылками*/
-/*todo: добавление в корзину*/
-/*todo: отдельные страницы товаров*/
+
+/*todo: отдельные страницы товаров для продвижения*/
 
 include "functions.php";
 
 
 class Spinky
 {
+
+    public $AdminEmail = 'elextraza@gmail.com';
 
     //Список пунктов меню
     function GetMenuList()
@@ -133,7 +134,11 @@ class Spinky
     function PayWhenDeliveryDone()
     {
         $result['status']='done';
-        ClearCard();
+        /*одготавливаем письмицо в конверте
+        1 - заказчику
+        2 - администратору
+        */
+        $this->ClearCard();
         echo json_encode($result);
 
     }

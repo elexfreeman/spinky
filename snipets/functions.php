@@ -65,6 +65,7 @@ function GetPageInfo($page_id)
         $product->title = $row['pagetitle'];
         $product->url = $row['uri'];
         $product->alias = $row['alias'];
+        $product->parent = $row['parent'];
         //теперь дополнительные поля
         // - 1 - если это подарки, то тут нету дополнительных цен
         $tv = GetContentTV($page_id);
@@ -107,7 +108,7 @@ function GetTV_Id_ByName($TV_name)
     $TV_id=0;
     $sql="select * from ".$table_prefix."site_tmplvars where name='".$TV_name."'";
 
-    echo $sql;
+    //echo $sql;
     foreach ($modx->query($sql) as $row_tv) {
         $TV_id = $row_tv['id'];
     }
@@ -136,13 +137,13 @@ function IncertPageTV($page_id,$tv_name,$tv_value)
 
     if ($c_tv_id == 0) {
         $sql_modx_vars = "INSERT INTO " . $table_prefix . "site_tmplvar_contentvalues
-(tmplvarid,contentid,value) VALUES ('" . $tv_id . "','".$page_id."','".$tv_value."');";
-        echo $sql_modx_vars . "<br>";
+(tmplvarid,contentid,value) VALUES ('" . $tv_id . "','".$page_id."','".mysql_escape_string($tv_value)."');";
+        //   echo $sql_modx_vars . "<br>";
         $modx->query($sql_modx_vars);
     } else {
         $sql_modx_vars = "update " . $table_prefix . "site_tmplvar_contentvalues
-            set value='".$tv_value."' where  (tmplvarid='" . $tv_id . "')and(contentid='".$page_id."')";
-        echo $sql_modx_vars . "<br>";
+            set value='".mysql_escape_string($tv_value)."' where  (tmplvarid='" . $tv_id . "')and(contentid='".$page_id."')";
+        ///  echo $sql_modx_vars . "<br>";
         $modx->query($sql_modx_vars);
     }
 }
@@ -173,10 +174,12 @@ function IncertPage($page)
     //Ищем такую страницу
     $product_id = 0;
     $sql_page = "select * from " . $table_prefix . "site_content where pagetitle='" . mysql_escape_string($page->pagetitle) . "'";
-   // echo $sql_page;
+    // echo $sql_page;
     foreach ($modx->query($sql_page) as $row_page) {
         $product_id = $row_page['id'];
     }
+
+
     if ($product_id == 0) {
         $sql_product = "INSERT INTO " . $table_prefix . "site_content
 (id, type, contentType, pagetitle, longtitle,
@@ -191,7 +194,7 @@ menutitle, donthit, privateweb, privatemgr,
 content_dispo, hidemenu, class_key, context_key,
 content_type, uri, uri_override, hide_children_in_tree,
 show_in_tree, properties)
-VALUES (NULL, 'document', 'text/html', '" .  $page->pagetitle . "', '', '', '" . $page->alias . "',
+VALUES (NULL, 'document', 'text/html', '" .  mysql_escape_string($page->pagetitle) . "', '', '', '" . $page->alias . "',
 '', true, 0, 0, " . $page->parent . ", false, '', '', true, " . $page->template . ", 1, true, true, 1, 1421901846, 0, 0, false, 0, 0, 1421901846, 1, '',
 false, false, false, false, false, 'modDocument', 'web', 1,
  '" . $page->url . "', false, false, true, null
@@ -200,14 +203,19 @@ false, false, false, false, false, 'modDocument', 'web', 1,
 ;";
 
         $modx->query($sql_product);
-        $page_id = $modx->lastInsertId();
+        $product_id = $modx->lastInsertId();
+        echo "INCERT ".$product_id."\r\n"."<br>";
+    }
+    else
+    {
+        echo "UPDAte PAge".$product_id."\r\n"."<br>";
     }
     foreach($page->TV as $TV_name=>$TV_value)
     {
-        IncertPageTV($page_id,$TV_name,$TV_value);
+        IncertPageTV($product_id,$TV_name,$TV_value);
     }
-  //  print_r($page);
+    print_r($page);
 
-    return $page_id;
+    return $product_id;
 }
 
