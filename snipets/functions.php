@@ -204,11 +204,11 @@ false, false, false, false, false, 'modDocument', 'web', 1,
 
         $modx->query($sql_product);
         $product_id = $modx->lastInsertId();
-        echo "INCERT ".$product_id."\r\n"."<br>";
+       // echo "INCERT ".$product_id."\r\n"."<br>";
     }
     else
     {
-        echo "UPDAte PAge".$product_id."\r\n"."<br>";
+        //echo "UPDAte PAge".$product_id."\r\n"."<br>";
     }
     foreach($page->TV as $TV_name=>$TV_value)
     {

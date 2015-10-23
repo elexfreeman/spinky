@@ -18,6 +18,9 @@ class Spinky
 
     public $AdminEmail = 'elextraza@gmail.com';
 
+    public $z_parent= 79;
+    public $z_template= 6;
+
     //Список пунктов меню
     function GetMenuList()
     {
@@ -138,8 +141,42 @@ class Spinky
         1 - заказчику
         2 - администратору
         */
-        $this->ClearCard();
-        echo json_encode($result);
+        //$this->ClearCard();
+        $card=$this->GetCard();
+        print_r($card);
+        $products='';
+        $summa=0;
+        foreach ($card as $product)
+        {
+            $products.=$product->id."-".$product->CardCount."||";
+            $summa+=$product->TV['Price']*$product->CardCount;
+        }
+
+        $user_delivery_address=mysql_escape_string($_GET['user_delivery_address']);
+        $user_email=mysql_escape_string($_GET['user_email']);
+        $user_name=mysql_escape_string($_GET['user_name']);
+        $user_phone=mysql_escape_string($_GET['user_phone']);
+
+        $obj = new stdClass();
+        $obj->pagetitle="z_".rand(5, 60)."_".$user_name."-".$user_phone;
+        $obj->parent=$this->z_parent;
+        $obj->template=$this->z_template;
+        $obj->TV['z_user_email']=$user_email;
+        $obj->TV['z_user_name']=$user_name;
+        $obj->TV['z_user_phone']=$user_phone;
+        $obj->TV['z_user_delivery_address']=$user_delivery_address;
+        $obj->TV['z_order_product_list']=$products;
+        $obj->TV['z_summa']=$summa;
+
+        $obj->alias = encodestring($obj->pagetitle);
+        $obj->url="zakazyi/". $obj->alias.".html";
+        //echo json_encode($card);
+        $order_id=IncertPage($obj);
+
+        /*Получаем тело письма из шаблона*/
+        include "tpl/tplCustomerEmail.php";
+
+
 
     }
     //Для обработка ajax-запросов
@@ -242,6 +279,18 @@ class Spinky
     }
 
 
+    /*Выводит конструктор на страницу через ajax*/
+    function tplConstructor()
+    {
+        include_once "tpl/tplConstructor.php";
+    }
+
+    /*Получает список объектов с основой для конструктора*/
+    function GetConstructorOsnovaList()
+    {
+
+    }
+
     function Run($scriptProperties)
     {
         if(isset($scriptProperties['action']))
@@ -257,6 +306,10 @@ class Spinky
             elseif($scriptProperties['action']=='tplCard')
             {
                 $this->tplCard();
+            }//
+            elseif($scriptProperties['action']=='tplConstructor')
+            {
+                $this->tplConstructor();
             }//
         }
     }
