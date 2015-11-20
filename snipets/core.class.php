@@ -21,6 +21,18 @@ class Spinky
     public $z_parent= 79;
     public $z_template= 6;
 
+    public $constructor_osnova_template= 8;
+    public $constructor_osnova_parent= 100;
+
+    public $constructor_sous_template= 10;
+    public $constructor_sous_parent= 102;
+
+    public $constructor_toping_template= 9;
+    public $constructor_toping_parent= 101;
+
+
+
+
     //Список пунктов меню
     function GetMenuList()
     {
@@ -288,7 +300,19 @@ class Spinky
     /*Получает список объектов с основой для конструктора*/
     function GetConstructorOsnovaList()
     {
+        return $this->GetCategoryProducts($this->constructor_osnova_parent);
+    }
 
+    /*Получает список объектов с соусов для конструктора*/
+    function GetConstructorSousList()
+    {
+        return $this->GetCategoryProducts($this->constructor_sous_parent);
+    }
+
+    /*Получает список объектов с топингов для конструктора*/
+    function GetConstructorTopingList()
+    {
+        return $this->GetCategoryProducts($this->constructor_toping_parent);
     }
 
     function Run($scriptProperties)
