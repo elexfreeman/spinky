@@ -208,6 +208,10 @@ class Spinky
             {
                 $this->PayWhenDeliveryDone();
             }
+            elseif($_GET['action']=='ConstructorAddToCard')
+            {
+                $this->ConstructorAddToCard();
+            }
         }
     }
 
@@ -313,6 +317,49 @@ class Spinky
     function GetConstructorTopingList()
     {
         return $this->GetCategoryProducts($this->constructor_toping_parent);
+    }
+
+    //Добавляет конструктор в заказ
+    function ConstructorAddToCard()
+    {
+        $base = $_GET['base']+0;
+        $topping = $_GET['topping'];
+        $topping=explode('||',$topping);
+
+        //Высчитываем цену
+        $price=0;
+        if($base>0)
+        {
+            $base=GetPageInfo($base);
+            $price=$base->TV['c_price']+0;
+        }
+
+        if(($topping[0]+0)>0)
+        {
+            $tp=GetPageInfo($topping[0]+0);
+            $price+=$tp->TV['c_price']+0;
+        }
+        if(($topping[1]+0)>0)
+        {
+            $tp=GetPageInfo($topping[1]+0);
+            $price+=$tp->TV['c_price']+0;
+        }
+
+        if(($topping[2]+0)>0)
+        {
+            $tp=GetPageInfo($topping[2]+0);
+            $price+=$tp->TV['c_price']+0;
+        }
+
+        if(($topping[3]+0)>0)
+        {
+            $tp=GetPageInfo($topping[3]+0);
+            $price+=$tp->TV['c_price']+0;
+        }
+
+        if($price>0)
+        $_SESSION['k_product_'.rand(10,300)]=$price;
+
     }
 
     function Run($scriptProperties)

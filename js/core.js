@@ -39,9 +39,20 @@
 
 
 /*Вставляет конструктор блюд в центр*/
-function GetConstructor()
+function GetConstructor(base,topping)
 {
-    ShowPage("/index/konstruktor.html",'constructor');
+
+    $.get(
+        "/index/konstruktor.html",
+        {
+            base:base,
+            topping:topping
+        },
+        function (data)
+        {
+            $(".constructor").html(data);
+        },"html"
+    ); //$.get  END
 }
 
 function GetLeftMenu()
@@ -176,3 +187,124 @@ function GetCard()
             }, "json"
         ); //$.get  END
     }
+
+
+    function ConstructorGetPrice()
+    {
+        var base =    $(".logo").attr('base');
+        var topping = $(".logo").attr('topping');
+        $.get(
+            "ajax.html",
+            {
+                //log1:1,
+                action: "ConstructorGetPrice",
+                base: base,
+                topping:topping
+            },
+            function (data) {
+                console.info(data.price);
+            }, "json"
+        ); //$.get  END
+    }
+
+    function ConstructorAddBase(base_id)
+    {
+        var base =    base_id;
+        $(".logo").attr('base',base_id);
+        var topping = $(".logo").attr('topping');
+
+        GetConstructor(base,topping);
+      /*  $.get(
+            "ajax.html",
+            {
+                //log1:1,
+                action: "ConstructorAddBase",
+                base_id: base_id,
+                base:base
+            },
+            function (data) {
+                GetConstructor(data.base,data.topping);
+            }, "json"
+        ); //$.get  END*/
+
+    }
+
+    function ConstructorAddTopping(topping_id)
+    {
+        var base =    $(".logo").attr('base');
+        var topping = $(".logo").attr('topping');
+
+        topping = topping.split("||");
+        if(topping[0]=='0')
+        {
+            topping[0]= topping_id;
+        }else
+        if(topping[1]=='0')
+        {
+            topping[1]= topping_id;
+        }else
+        if(topping[2]=='0')
+        {
+            topping[2]= topping_id;
+        }else
+        if(topping[3]=='0')
+        {
+            topping[3]= topping_id;
+        }
+        topping = topping.join("||");
+        $(".logo").attr('topping',topping);
+        GetConstructor(base,topping);
+    }
+
+    function ConstructoDeleteBase(base_id)
+    {
+        $(".logo").attr('base',0);
+        var topping = $(".logo").attr('topping');
+        GetConstructor(0,topping);
+    }
+
+    function ConstructoDeleteTopping(topping_id)
+    {
+        var base =    $(".logo").attr('base');
+        var topping = $(".logo").attr('topping');
+
+        topping = topping.split("||");
+        if(topping[0]==topping_id)
+        {
+            topping[0]= 0;
+        }else
+        if(topping[1]==topping_id)
+        {
+            topping[1]= 0;
+        }else
+        if(topping[2]==topping_id)
+        {
+            topping[2]= 0;
+        }else
+        if(topping[3]==topping_id)
+        {
+            topping[3]= 0;
+        }
+        topping = topping.join("||");
+        $(".logo").attr('topping',topping);
+        GetConstructor(base,topping);
+    }
+
+    function ConstructorAddToCard()
+    {
+        var base =    $(".logo").attr('base');
+        var topping = $(".logo").attr('topping');
+        $.get(
+             "ajax.html",
+             {
+                 //log1:1,
+                 action: "ConstructorAddToCard",
+                 base: base,
+                 topping:topping
+             },
+             function (data) {
+                 GetCard();
+             }, "json"
+         ); //$.get  END
+    }
+
